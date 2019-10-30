@@ -1,3 +1,4 @@
+
 CREATE TABLE menu(
 id INTEGER (11) AUTO_INCREMENT NOT NULL,
 topping_name VARCHAR (50),

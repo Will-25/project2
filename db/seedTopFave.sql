@@ -28,4 +28,16 @@ INSERT INTO faveorites (pizza_name)
           ("hawaiian pizza");
 
 INSERT INTO pizzaWTopping (pizza_id, topping_id)
-    VALUES()
+    VALUES(1, 1),
+          (1, 3),
+          (1, 4),
+          (1, 10),
+          (2, 13),
+          (2, 20),
+          (3, 19),
+          (3, 16),
+          (3, 5),
+          (4, 1),
+          (4, 3),
+          (4, 8),
+          (4, 10);
