@@ -121,18 +121,10 @@ $(document).ready(function () {
     var button = $("<button>");
     button.addClass("buttonT");
     button.attr('id', count);
+    button.text(toppings[i]);
     count++;
-    if (i<5){
-      // Creating and storing a div tag
-            var animalDiv = $("<div>");
-
-    }else if (i>5&& i<10){
-    // Creating and storing a div tag
-          var animalDiv = $("<div>");
-
-  }
-  $(".pizza-buttons").append(button);
-};
+    $(".pizza-buttons").append(button);
+  };
 
   // Add event listeners to the submit and delete buttons
   $submitBtn.on("click", handleFormSubmit);
