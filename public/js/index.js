@@ -118,37 +118,23 @@ $(document).ready(function () {
   // for loop to create all toppings buttons to html
   for (var i = 0; i < toppings.length; i++) {
     var count = 1;
-    var button = $('#pizzabuttons').html("<button id=" + count + ">" + toppings[i] + "</button>")
+    var button = $("<button>");
+    button.addClass("buttonT");
+    button.attr('id', count);
     count++;
+    if (i<5){
+      // Creating and storing a div tag
+            var animalDiv = $("<div>");
+
+    }else if (i>5&& i<10){
+    // Creating and storing a div tag
+          var animalDiv = $("<div>");
+
   }
+  $(".pizza-buttons").append(button);
+};
+
   // Add event listeners to the submit and delete buttons
   $submitBtn.on("click", handleFormSubmit);
   $favoriteList.on("click", ".delete", handleDeleteBtnClick);
-
-  var toppings = [
-    "Pepperoni",
-    "Mushroom",
-    "Sausage",
-    "Bacon",
-    "Onion",
-    "Garlic",
-    "Crushed Red Pepper",
-    "Pineapple",
-    "Basil",
-    "Ham",
-    "Olives",
-    "Oregano",
-    "Chicken",
-    "Beef",
-    "Jalapeno",
-    "Green Pepper",
-    "Salami",
-    "Spinach",
-    "Buffilo Chicken",
-    "BBQ Sause",
-    "Feta Cheese"
-  ];
-  for (var i = 0; i < toppings.length; i++) {
-
-  }
 });
