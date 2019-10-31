@@ -115,16 +115,20 @@ $(document).ready(function () {
     "BBQ Sause",
     "Feta Cheese"
   ];
+
   // for loop to create all toppings buttons to html
   for (var i = 0; i < toppings.length; i++) {
     var count = 1;
-    var button = $("<button>");
+    // var button = $("<button>");
     button.addClass("buttonT");
-    button.attr('id', count);
+    button.attr('id', toppings[i]);
     button.text(toppings[i]);
-    count++;
+    // count++;
     $(".pizza-buttons").append(button);
   };
+  $(".buttonT").on("click", function(){
+    $(this).text();
+  });
 
   // Add event listeners to the submit and delete buttons
   $submitBtn.on("click", handleFormSubmit);
