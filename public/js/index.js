@@ -127,7 +127,8 @@ $(document).ready(function () {
     $(".pizza-buttons").append(button);
   };
   $(".buttonT").on("click", function(){
-    $(this).text();
+    var bText= $(this).text();
+    $(".userToppings").append(bText);
   });
 
   // Add event listeners to the submit and delete buttons
