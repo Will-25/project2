@@ -1,0 +1,98 @@
+  <div class="containerTwo">
+      <div class="row">
+        <div class="col-md-6">
+                <img id="logo" src="https://img.icons8.com/plasticine/100/000000/pizza.png">
+          <h2 class ="title-heading animated bounceInRight" id="mainTitle"> THE PIZZERIA PLAZA </h2>
+          <form class="clearfix mb-4" action="POST">
+            <div class="form-group">
+              <label for="search-heading" id="searchTxt">Enter Your Pizza</label>
+              <input type="text" id="pizza-enter" class="form-control animated fadeIn" aria-describedby="example-text" placeholder="BBQ Chicken Pizza">
+            </div>
+            <br/>
+
+          <h2 class="title-heading animated fadeIn" id="toppingsHead">TOPPINGS</h2>
+          <div class ="pizza-buttons">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn-danger" id="pep">PEPPERONI</button>
+            <button type="button" class="btn-dark" id="mush">MUSHROOM</button>
+            <button type="button" class="btn-danger">SAUSAGE</button>
+            <button type="button" class="btn-danger">BACON</button>
+            <button type="button" class="btn-dark">ONION</button>
+          </div>
+        </br> </br> </br>
+
+            <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn-success">GARLIC</button>
+            <button type="button" class="btn-warning">FETA CHEESE</button>
+            <button type="button" class="btn-warning" id="pine">PINEAPPLE</button>
+            <button type="button" class="btn btn-success">BASIL</button>
+            <button type="button" class="btn-danger" id="ham">HAM</button>
+          </div>
+
+        </br> </br> </br>
+        <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-success">OLIVES</button>
+        <button type="button" class="btn-success">OREGANO</button>
+        <button type="button" class="btn-warning" id="chick">CHICKEN</button>
+        <button type="button" class="btn-danger">BEEF</button>
+        <button type="button" class="btn btn-success">JALEPENO PEPPERS</button>
+        </div>
+
+    </br> </br> </br>
+    <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn-danger">CRUSHED RED PEPPERS</button>
+    <button type="button" class="btn-danger">SALAMI</button>
+    <button type="button" class="btn-success">SPINACH</button>
+    <button type="button" class="btn btn-warning">BUFFALO SAUCE</button>
+    <button type="button" class="btn-danger">CHILI</button>
+    </div>
+
+    </br> </br> </br> </br>
+    </div>
+  
+          </br> </br>
+  
+          <h2 id="yourPizza">Your Pizza:</h2>
+          <div class="pizzaInfo">
+
+          </div>
+          <br/> </br> </br> </br> </br> </br> </br>
+  
+           <button type="button" class="btn btn-danger" id="submit">Submit</button>
+          </form>
+        </div>
+        
+        <div class = "row">
+        <div class="col-md-12">
+          <h2>Your Previous Pizzas:</h2>
+          <ul>
+            {{#each saved}}
+            <li>
+           <p>ID: {{this.id}}</p>
+         <p>Task: {{this.saved}}</p>
+          </li>
+            {{/each}}
+        </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+    $("#pep").on("click", function(){
+        console.log("'Pepperoni'");
+        $(".pizzaInfo").html("Pepperoni");
+    })
+    </script>
+  
+
+  <script src="/js/index.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=IM+Fell+English&display=swap" rel="stylesheet">
+  <link href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css" rel = "stylesheet">
+  <link href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel ="stylesheet">
+  <link rel ="stylesheet" href="../public/styles/animate.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel = "stylesheet" type ="text/css" href = "../public/styles/reset.css">
+  <link rel ="stylesheet" type="text/css" href="../public/styles/styles.css">
+  

@@ -1,3 +1,62 @@
+.containerTwo {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  background-color: royalblue;
+}
+
 .list-group-item {
   line-height: 2.5;
+}
+
+.title-heading {
+  font-family: 'Crimson Text', serif;
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* .pizza-buttons {
+  
+} */
+
+.btn-dark, .btn-danger, .btn-success, .btn-warning{
+  margin:20px;
+  font-family: 'Crimson Text', serif; 
+  color:white;
+  animation: alternate-reverse;
+}
+
+.btn-warning{
+  color:green;
+}
+
+#logo{
+  background-color: black;
+}
+
+#mainTitle{
+  color:white;
+  animation-delay: 1s;
+  animation-duration: 10s;
+  font-family: 'IM Fell English', serif;
+
+}
+
+#searchTxt{
+  color:white;
+  font-family: 'IM Fell English', serif;
+}
+
+#pizza-enter{
+  animation-duration: 5s;
+}
+
+#toppingsHead{
+  color:white;
+  animation-duration: 5s;
+  animation-delay: 2s;
+  font-family: 'IM Fell English', serif;
+}
+
+#submit {
+  float:right;
 }
