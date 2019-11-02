@@ -1,99 +1,137 @@
-// Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+$(document).ready(function () {
+  // Get references to page elements
+  var $pizzaName = $("#pizza-enter");
+  var $submitBtn = $("#submit");
+  var $favoriteList = $("#pizza-fav");
 
-// The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function(example) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
-  }
-};
-
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
-
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
-      return $li;
-    });
-
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
-
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
-  event.preventDefault();
-
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  // The API object contains methods for each kind of request we'll make
+  var API = {
+    savePizza: function (index) {
+      return $.ajax({
+        headers: {
+          "Content-Type": "application/json"
+        },
+        type: "POST",
+        url: "api/favorites",
+        data: JSON.stringify(index)
+      });
+    },
+    getPizza: function () {
+      return $.ajax({
+        url: "api/index",
+        type: "GET"
+      });
+    },
+    deletePizza: function (id) {
+      return $.ajax({
+        url: "api/favorites/" + id,
+        type: "DELETE"
+      });
+    }
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
+  // refreshFavorites gets new examples from the db and repopulates the list
+  var refreshFavorites = function () {
+    API.getPizza().then(function (data) {
+      var $index = data.map(function (index) {
+        var $a = $("<a>")
+          .text(index.text)
+          .attr("href", "/index/" + index.id);
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+        var $li = $("<li>")
+          .attr({
+            class: "list-group-item",
+            "data-id": index.id
+          })
+          .append($a);
+
+        var $button = $("<button>")
+          .addClass("btn btn-danger float-right delete")
+          .text("ｘ");
+
+        $li.append($button);
+
+        return $li;
+      });
+
+      $favoriteList.empty();
+      $favoriteList.append($index);
+    });
+  };
+
+  // handleFormSubmit is called whenever we submit a new example
+  // Save the new example to the db and refresh the list
+  var handleFormSubmit = function (event) {
+    event.preventDefault();
+
+    var index = {
+      text: $pizzaName.val().trim(),
+    };
+
+    if (!(index.text)) {
+      alert("You must enter an Pizza name!");
+      return;
+    }
+
+    API.savePizza(index).then(function () {
+      refreshFavorites();
+    });
+
+    $pizzaName.val("");
+  };
+
+  // handleDeleteBtnClick is called when an example's delete button is clicked
+  // Remove the example from the db and refresh the list
+  var handleDeleteBtnClick = function () {
+    var idToDelete = $(this)
+      .parent()
+      .attr("data-id");
+
+    API.deletePizza(idToDelete).then(function () {
+      refreshFavorites();
+    });
+  };
+
+  var toppings = [
+    "Pepperoni",
+    "Mushroom",
+    "Sausage",
+    "Bacon",
+    "Onion",
+    "Garlic",
+    "Crushed Red Pepper",
+    "Pineapple",
+    "Basil",
+    "Ham",
+    "Olives",
+    "Oregano",
+    "Chicken",
+    "Beef",
+    "Jalapeno",
+    "Green Pepper",
+    "Salami",
+    "Spinach",
+    "Buffilo Chicken",
+    "BBQ Sause",
+    "Feta Cheese"
+  ];
+
+  // for loop to create all toppings buttons to html
+  for (var i = 0; i < toppings.length; i++) {
+    var count = 1;
+    // var button = $("<button>");
+    button.addClass("buttonT");
+    button.attr('id', toppings[i]);
+    button.text(toppings[i]);
+    // count++;
+    $(".pizza-buttons").append(button);
+  };
+  $(".buttonT").on("click", function(){
+    var bText= $(this).text();
+    $(".userToppings").append(bText);
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
-};
-
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
-
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+  // Add event listeners to the submit and delete buttons
+  $submitBtn.on("click", handleFormSubmit);
+  $favoriteList.on("click", ".delete", handleDeleteBtnClick);
+});
