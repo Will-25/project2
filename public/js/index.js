@@ -64,14 +64,7 @@ $(document).ready(function() {
   var handleFormSubmit = function(event) {
     event.preventDefault();
 
-    var index = {
-      text: $pizzaName.val().trim()
-    };
-
-    if (!index.text) {
-      alert("You must enter an Pizza name!");
-      return;
-    }
+    
 
     API.savePizza(index).then(function() {
       refreshFavorites();
@@ -129,11 +122,20 @@ $(document).ready(function() {
   $(".buttonT").on("click", function(event) {
     event.preventDefault();
     var bText = $(this).text();
-    console.log(bText);
+
     $(".userToppings").append(bText, ", ");
   });
+  $("#submit").on("click", function(event) {
+    event.preventDefault();
+    var index = {
+      text: $pizzaName.val().trim()
+    };
 
-  // Add event listeners to the submit and delete buttons
-  $submitBtn.on("click", handleFormSubmit);
-  $favoriteList.on("click", ".delete", handleDeleteBtnClick);
+    if (!index.text) {
+      alert("You must enter an Pizza name!");
+      return;
+    }
+    var toppings = $(".userToppings").text();
+    console.log(toppings);
+  });
 });
