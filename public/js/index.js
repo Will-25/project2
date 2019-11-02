@@ -64,8 +64,6 @@ $(document).ready(function() {
   var handleFormSubmit = function(event) {
     event.preventDefault();
 
-    
-
     API.savePizza(index).then(function() {
       refreshFavorites();
     });
@@ -136,6 +134,11 @@ $(document).ready(function() {
       return;
     }
     var toppings = $(".userToppings").text();
-    console.log(toppings);
+    var pizzaInput = $("#pizza-enter").val();
+    var userPizza = {
+      name: pizzaInput,
+      toppings: toppings
+    };
+    $.post("/favorites", userPizza).then();
   });
 });
