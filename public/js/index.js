@@ -1,10 +1,13 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-irregular-whitespace */
 $(document).ready(function () {
-  // Get references to page elements
-  var $pizzaName = $("#pizza-enter");
-  var $submitBtn = $("#submit");
-  var $favoriteList = $("#pizza-fav");
 
-  // The API object contains methods for each kind of request we'll make
+  var pizzaName = $("#pizza-enter");
+  var submitBtn = $("#submit");
+  var favoriteList = $("#pizza-fav");
+
+ 
   var API = {
     savePizza: function (index) {
       return $.ajax({
@@ -38,24 +41,24 @@ $(document).ready(function () {
           .text(index.text)
           .attr("href", "/index/" + index.id);
 
-        var $li = $("<li>")
+        var li = $("<li>")
           .attr({
             class: "list-group-item",
             "data-id": index.id
           })
-          .append($a);
+          .append(a);
 
-        var $button = $("<button>")
+        var button = $("<button>")
           .addClass("btn btn-danger float-right delete")
           .text("ｘ");
 
-        $li.append($button);
+        li.append($button);
 
         return $li;
       });
 
-      $favoriteList.empty();
-      $favoriteList.append($index);
+      favoriteList.empty();
+      favoriteList.append(index);
     });
   };
 
@@ -65,7 +68,7 @@ $(document).ready(function () {
     event.preventDefault();
 
     var index = {
-      text: $pizzaName.val().trim(),
+      text: =pizzaName.val().trim(),
     };
 
     if (!(index.text)) {
@@ -77,7 +80,7 @@ $(document).ready(function () {
       refreshFavorites();
     });
 
-    $pizzaName.val("");
+    pizzaName.val("");
   };
 
   // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -121,11 +124,12 @@ $(document).ready(function () {
     var count = 1;
     // var button = $("<button>");
     button.addClass("buttonT");
-    button.attr('id', toppings[i]);
+    button.attr("id", toppings[i]);
     button.text(toppings[i]);
     // count++;
     $(".pizza-buttons").append(button);
   };
+
   $(".buttonT").on("click", function(){
     var bText= $(this).text();
     $(".userToppings").append(bText);
