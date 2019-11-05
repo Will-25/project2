@@ -1,7 +1,8 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
-/* eslint-disable no-irregular-whitespace */
-$(document).ready(function () {
+$(document).ready(function() {
+  // Get references to page elements
+  var $pizzaName = $("#pizza-enter");
+  var $submitBtn = $("#submit");
+  var $favoriteList = $("#pizza-fav");
 
   var pizzaName = $("#pizza-enter");
   var submitBtn = $("#submit");
@@ -9,7 +10,7 @@ $(document).ready(function () {
 
  
   var API = {
-    savePizza: function (index) {
+    savePizza: function(index) {
       return $.ajax({
         headers: {
           "Content-Type": "application/json"
@@ -19,13 +20,13 @@ $(document).ready(function () {
         data: JSON.stringify(index)
       });
     },
-    getPizza: function () {
+    getPizza: function() {
       return $.ajax({
         url: "api/index",
         type: "GET"
       });
     },
-    deletePizza: function (id) {
+    deletePizza: function(id) {
       return $.ajax({
         url: "api/favorites/" + id,
         type: "DELETE"
@@ -34,9 +35,9 @@ $(document).ready(function () {
   };
 
   // refreshFavorites gets new examples from the db and repopulates the list
-  var refreshFavorites = function () {
-    API.getPizza().then(function (data) {
-      var $index = data.map(function (index) {
+  var refreshFavorites = function() {
+    API.getPizza().then(function(data) {
+      var $index = data.map(function(index) {
         var $a = $("<a>")
           .text(index.text)
           .attr("href", "/index/" + index.id);
@@ -64,9 +65,10 @@ $(document).ready(function () {
 
   // handleFormSubmit is called whenever we submit a new example
   // Save the new example to the db and refresh the list
-  var handleFormSubmit = function (event) {
+  var handleFormSubmit = function(event) {
     event.preventDefault();
 
+<<<<<<< HEAD
     var index = {
       text: =pizzaName.val().trim(),
     };
@@ -76,7 +78,7 @@ $(document).ready(function () {
       return;
     }
 
-    API.savePizza(index).then(function () {
+    API.savePizza(index).then(function() {
       refreshFavorites();
     });
 
@@ -85,12 +87,12 @@ $(document).ready(function () {
 
   // handleDeleteBtnClick is called when an example's delete button is clicked
   // Remove the example from the db and refresh the list
-  var handleDeleteBtnClick = function () {
+  var handleDeleteBtnClick = function() {
     var idToDelete = $(this)
       .parent()
       .attr("data-id");
 
-    API.deletePizza(idToDelete).then(function () {
+    API.deletePizza(idToDelete).then(function() {
       refreshFavorites();
     });
   };
@@ -118,24 +120,45 @@ $(document).ready(function () {
     "BBQ Sause",
     "Feta Cheese"
   ];
-
+  var count = 0;
   // for loop to create all toppings buttons to html
   for (var i = 0; i < toppings.length; i++) {
-    var count = 1;
-    // var button = $("<button>");
+    count++;
+    var button = $("<button>");
     button.addClass("buttonT");
-    button.attr("id", toppings[i]);
+    button.attr("id", count);
     button.text(toppings[i]);
-    // count++;
+
     $(".pizza-buttons").append(button);
   };
 
-  $(".buttonT").on("click", function(){
-    var bText= $(this).text();
-    $(".userToppings").append(bText);
-  });
+  // $(".buttonT").on("click", function(){
+  //   var bText= $(this).text();
+  //   $(".userToppings").append(bText);
 
-  // Add event listeners to the submit and delete buttons
-  $submitBtn.on("click", handleFormSubmit);
-  $favoriteList.on("click", ".delete", handleDeleteBtnClick);
+  // }
+  $(".buttonT").on("click", function(event) {
+    event.preventDefault();
+    var bText = $(this).text();
+
+    $(".userToppings").append(bText, ", ");
+  });
+  $("#submit").on("click", function(event) {
+    event.preventDefault();
+    var index = {
+      text: $pizzaName.val().trim()
+    };
+
+    if (!index.text) {
+      alert("You must enter an Pizza name!");
+      return;
+    }
+    var toppings = $(".userToppings").text();
+    var pizzaInput = $("#pizza-enter").val();
+    var userPizza = {
+      name: pizzaInput,
+      toppings: toppings
+    };
+    $.post("/favorites", userPizza).then();
+  });
 });
