@@ -2,18 +2,21 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/toppings", function(req, res) {
-    db.Pizza.findAll({}).then(function(dbPizza) {
-      res.json(dbPizza);
+  app.get("/api/favorites", function(req, res) {
+    db.Favorite.findAll({}).then(function(dbFavorite) {
+      res.json(dbFavorite);
     });
   });
 
   // Create a new example
-  app.post("/favorites", function(req, res) {
-    console.log(req.body)
-    // db.Example.create(req.body).then(function(dbExample) {
-    //   res.json(dbExample);
-    // });
+  app.post("/api/favorites", function(req, res) {
+    console.log(req.body);
+    db.Favorite.create({
+      pizzaName: req.body.name,
+      toppings: req.body.toppings
+    }).then(function(dbFavorite) {
+      res.json(dbFavorite);
+    });
   });
 
   // Delete an example by id
