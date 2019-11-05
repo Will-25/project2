@@ -1,12 +1,15 @@
-$(document).ready(function () {
-  // Get references to page elements
+/* eslint-disable no-unused-vars */
+$(document).ready(function() {
+  // eslint-disable-next-line no-irregular-whitespace
+  //Get references to page elements
   var $pizzaName = $("#pizza-enter");
   var $submitBtn = $("#submit");
   var $favoriteList = $("#pizza-fav");
 
+  // eslint-disable-next-line no-irregular-whitespace
   // The API object contains methods for each kind of request we'll make
   var API = {
-    savePizza: function (index) {
+    savePizza: function(index) {
       return $.ajax({
         headers: {
           "Content-Type": "application/json"
@@ -16,13 +19,13 @@ $(document).ready(function () {
         data: JSON.stringify(index)
       });
     },
-    getPizza: function () {
+    getPizza: function() {
       return $.ajax({
         url: "api/index",
         type: "GET"
       });
     },
-    deletePizza: function (id) {
+    deletePizza: function(id) {
       return $.ajax({
         url: "api/favorites/" + id,
         type: "DELETE"
@@ -30,10 +33,11 @@ $(document).ready(function () {
     }
   };
 
+  // eslint-disable-next-line no-irregular-whitespace
   // refreshFavorites gets new examples from the db and repopulates the list
-  var refreshFavorites = function () {
-    API.getPizza().then(function (data) {
-      var $index = data.map(function (index) {
+  var refreshFavorites = function() {
+    API.getPizza().then(function(data) {
+      var $index = data.map(function(index) {
         var $a = $("<a>")
           .text(index.text)
           .attr("href", "/index/" + index.id);
@@ -59,35 +63,39 @@ $(document).ready(function () {
     });
   };
 
+  // eslint-disable-next-line no-irregular-whitespace
   // handleFormSubmit is called whenever we submit a new example
+  // eslint-disable-next-line no-irregular-whitespace
   // Save the new example to the db and refresh the list
-  var handleFormSubmit = function (event) {
+  var handleFormSubmit = function(event) {
     event.preventDefault();
 
     var index = {
-      text: $pizzaName.val().trim(),
+      text: $pizzaName.val().trim()
     };
 
-    if (!(index.text)) {
+    if (!index.text) {
       alert("You must enter an Pizza name!");
       return;
     }
 
-    API.savePizza(index).then(function () {
+    API.savePizza(index).then(function() {
       refreshFavorites();
     });
 
     $pizzaName.val("");
   };
 
+  // eslint-disable-next-line no-irregular-whitespace
   // handleDeleteBtnClick is called when an example's delete button is clicked
+  // eslint-disable-next-line no-irregular-whitespace
   // Remove the example from the db and refresh the list
-  var handleDeleteBtnClick = function () {
+  var handleDeleteBtnClick = function() {
     var idToDelete = $(this)
       .parent()
       .attr("data-id");
 
-    API.deletePizza(idToDelete).then(function () {
+    API.deletePizza(idToDelete).then(function() {
       refreshFavorites();
     });
   };
@@ -121,16 +129,17 @@ $(document).ready(function () {
     var count = 1;
     // var button = $("<button>");
     button.addClass("buttonT");
-    button.attr('id', toppings[i]);
+    button.attr("id", toppings[i]);
     button.text(toppings[i]);
     // count++;
     $(".pizza-buttons").append(button);
-  };
-  $(".buttonT").on("click", function(){
-    var bText= $(this).text();
+  }
+  $(".buttonT").on("click", function() {
+    var bText = $(this).text();
     $(".userToppings").append(bText);
   });
 
+  // eslint-disable-next-line no-irregular-whitespace
   // Add event listeners to the submit and delete buttons
   $submitBtn.on("click", handleFormSubmit);
   $favoriteList.on("click", ".delete", handleDeleteBtnClick);
