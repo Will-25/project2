@@ -7,7 +7,6 @@ module.exports = function(app) {
       res.json(dbPizza);
     });
   });
-
   // Create a new example
   app.post("/favorites", function(req, res) {
     console.log(req.body)
