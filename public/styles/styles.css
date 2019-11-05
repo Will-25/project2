@@ -87,15 +87,23 @@
   font-size:300px;
 }
 
+#text{
+  padding-top:-300px;
+  z-index:1;
+  float:left;
+}
+
 #bars{
   font-family: 'Monoton', cursive;
   color:white;
 }
 
-#contTwo{
-  color:white;
+#style{
+color:red;
 background-color:white;
 padding-right:1500px;
+text-align:left;
+height:100%;
 }
 
 #mainTitle{

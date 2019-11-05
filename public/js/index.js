@@ -22,7 +22,7 @@ $(document).ready(function() {
     },
     getPizza: function() {
       return $.ajax({
-        url: "api/index",
+        url: "api/favorites",
         type: "GET"
       });
     },
@@ -34,43 +34,25 @@ $(document).ready(function() {
     }
   };
 
+  // eslint-disable-next-line no-irregular-whitespace
   // refreshFavorites gets new examples from the db and repopulates the list
-  var refreshFavorites = function() {
-    API.getPizza().then(function(data) {
-      var $index = data.map(function(index) {
-        var $a = $("<a>")
-          .text(index.text)
-          .attr("href", "/index/" + index.id);
 
-        var li = $("<li>")
-          .attr({
-            class: "list-group-item",
-            "data-id": index.id
-          })
-          .append(a);
-
-        var button = $("<button>")
-          .addClass("btn btn-danger float-right delete")
-          .text("ｘ");
-
-        li.append($button);
-
-        return $li;
-      });
-
-      favoriteList.empty();
-      favoriteList.append(index);
-    });
-  };
+  API.getPizza().then(function(data) {
+    for (var i = 0; i < data.length; i++) {
+      var favoriteList = {
+        name: data[i].pizzaName,
+        toppings: data[i].toppings
+      }
+      $("#pizza-fav").html("<div>" + favoriteList + "</div>");
+    }
+  });
 
   // handleFormSubmit is called whenever we submit a new example
   // Save the new example to the db and refresh the list
   var handleFormSubmit = function(event) {
     event.preventDefault();
-
-<<<<<<< HEAD
     var index = {
-      text: =pizzaName.val().trim(),
+      text: = pizzaName.val().trim(),
     };
 
     if (!(index.text)) {
@@ -159,6 +141,6 @@ $(document).ready(function() {
       name: pizzaInput,
       toppings: toppings
     };
-    $.post("/favorites", userPizza).then();
+    $.post("/api/favorites", userPizza).then();
   });
 });

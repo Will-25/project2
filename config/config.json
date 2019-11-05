@@ -1,7 +1,12 @@
 {
   "development": {
+<<<<<<< HEAD
     "username": "root", 
     "password": "12345678",
+=======
+    "username": "root",
+    "password": "root",
+>>>>>>> 56cb19d9fe4bd5acad79bc69622d4cef34054b42
     "database": "pizza_db",
     "host": "localhost",
     "dialect": "mysql"
