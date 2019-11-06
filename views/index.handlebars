@@ -1,31 +1,43 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h1>{{msg}}</h1>
-        <h2 class="title-heading">The Pizzeria Plaza</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="search-heading">Enter Your Pizza</label>
-            <input type="text" id="pizza-enter" class="form-control" aria-describedby="example-text"
-              placeholder="BBQ Chicken Pizza">
-          </div>
-          <br />
-          <h2 class="title-heading">Our Toppings</h2>
-          <div class="pizza-buttons">
-            <div class="btn-group" role="group" aria-label="Basic example">
+<!DOCTYPE HTML>
 
-            </div>
-          </div>
+<html>
+	<head>
+		<title>PIZZERIA PLAZA</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		{{!-- <link rel="stylesheet" href="assets/css/main.css" /> --}}
+        {{!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../public/js/index.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script> --}}
+			{{!-- <link href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css" rel = "stylesheet">
+			<link href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel ="stylesheet"> --}}
+			{{!-- <link rel ="stylesheet" type="text/css" href="../public/styles/styles.css"> --}}
+      {{!-- <link rel ="stylesheet" type="text/css" href="../public/styles/main.css"> --}}
+	</head>
+	<body>
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="inner">
+					<h1 class="animated bounceInRight" id="main-logo">PIZZERA PLAZA</h1>
+					<p>Welcome to the pizzeria plaza 
+            <br/> 
+          
+        </p>
+          <li>
+            <button type="button" class="btn btn-danger" id="menu-button">Menu</button></li> 
+            <br/>
+					{{!-- <input type ="button" onClick ="document.getElementById('build').scrollIntoView();">Build Your Pizza --}}
+          <li>
+            <button type="button" class="btn btn-danger" id="build-button">Build Your Pizza</button>
+            </li></p>
+				</div>
+			</header>
 
-          </br> </br> </br> </br>
-          <div>
-            <h2>Your toppings:</h2>
-            <br>
-            <div class="userToppings"></div>
-          </div>
-          {{!-- <h2>Your Pizza:</h2>
-          <br /> </br> </br> </br> </br> </br> </br> --}}
+		<!-- Wrapper -->
+			<div id="wrapper">
 
           <button type="button" class="btn btn-danger" id="submit">Submit</button>
         </form>
@@ -58,32 +70,123 @@
           {{/if}}
         </form>
       </div>
+				<!-- Banner -->
+					<section id="intro" class="main" id="build">
+						<span class="icon fa-diamond major"></span>
+						<h2>Our Toppings:</h2>
+						<div class="pizza-buttons">
+								<div class="btn-group" role="group" aria-label="Basic example">
+							<!-- Buttons go here -->
+						</div>
+						<br/>
+						<h2>Your Current Pizza:</h2>
+						<div class="userToppings">
+							<!-- User toppings -->
 
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Your Previous Pizzas:</h2>
-          {{!-- <div class="favList">
+						</div>
+						<br/>
+						<h2>Your Previous Pizzas:</h2>
+						<div class="favList">
+							<!-- Favorite Pizzas -->
+							<ul>
+								{{#each saved}}
+							<li>
+								<p>ID: {{this.id}}</p>
+								<p>Task: {{this.saved}}</p>
+							</li>
+								{{/each}}
+							</ul>
+						</div>
 
-          </div> --}}
-          <ul>
-            {{#each saved}}
-            <li>
-              <p>ID: {{this.id}}</p>
-              <p>Task: {{this.saved}}</p>
-            </li>
-            {{/each}}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+						<ul class="actions">
+							<li><button type="button" class="btn btn-danger" id="submit">Submit</button></li>
+						</ul>
+					</section>
+					<br/>
+					<h1 class="menu-title" id="middle">MENU</h1>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Crimson+Text&display=swap" rel="stylesheet">
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="../public/styles/styles.css">
+				<!-- Items -->
+					<section class="main items">
+						<article class="item">
+							<header>
+								<a href="#"><img src="https://tastesbetterfromscratch.com/wp-content/uploads/2013/03/BBQ-Chicken-Pizza-9.jpg" alt="" /></a>
+								<h3>BBQ Chicken Pizza</h3>
+							</header>
+							<p>Premium grilled chicken, crunchy fresh onions, and three cheeses: mozzarella, provolone and cheddar on our hand-tossed crust.</p>
+							<ul class="actions">
+								<li><a href="#" class="order-button">Order</a></li>
+							</ul>
+						</article>
+						<article class="item">
+							<header>
+								<a href="#"><img src="https://iamafoodblog.com/wp-content/uploads/2015/10/meatlovers-pizza-8w.jpg" alt="" /></a>
+								<h3>Meat Lovers</h3>
+							</header>
+							<p>Thick pizza crust topped with homemade pizza sauce, gooey cheese and tons of sausage, pepperoni and crumbled bacon.</p>
+							<ul class="actions">
+								<li><a href="#" class="order-button">Order</a></li>
+							</ul>
+						</article>
+						<article class="item">
+							<header>
+								<a href="#"><img src="https://images.radio.com/aiu-media/GettyImages1022591094-4f501f2b-add2-40a8-8c63-bd2a699d9f9b.jpg?width=800" alt="" /></a>
+								<h3>Classic Pepperoni</h3>
+							</header>
+							<p>A traditional crispy crust, topped with a blend of mozzarella and cheddar cheese, zesty pepperoni slices and a rich tomato sauce.</p>
+							<ul class="actions">
+								<li><a href="#" class="order-button">Order</a></li>
+							</ul>
+						</article>
+						<article class="item">
+							<header>
+								<a href="#"><img src="https://www.crazyforcrust.com/wp-content/uploads/2017/01/The-Ultimate-Pizza-Dough-Recipe-6-of-7.jpg" alt="" /></a>
+								<h3>Cheese Pizza</h3>
+							</header>
+							<p>Evenly top with the grated fontina cheese, torn mozzarella cheese, and half the grated Grana Padano cheese.</p>
+							<ul class="actions">
+								<li><a href="#" class="order-button">Order</a></li>
+							</ul>
+						</article>
+					</section>
+
+				<!-- CTA -->
+					<section id="cta" class="main special">
+						<h2>Created By:</h2>
+						<p>Will Irvin<br />
+						Wynton Davis<br />
+						Emily Tucker<br/>
+						Ceaser Perkins<br/>
+						William Woodall 
+					</p>
+
+					</section>
+
+				<!-- Main -->
+				<!--
+					<section id="main" class="main">
+						<header>
+							<h2>Lorem ipsum dolor</h2>
+						</header>
+						<p>Fusce malesuada efficitur venenatis. Pellentesque tempor leo sed massa hendrerit hendrerit. In sed feugiat est, eu congue elit. Ut porta magna vel felis sodales vulputate. Donec faucibus dapibus lacus non ornare. Etiam eget neque id metus gravida tristique ac quis erat. Aenean quis aliquet sem. Ut ut elementum sem. Suspendisse eleifend ut est non dapibus. Nulla porta, neque quis pretium sagittis, tortor lacus elementum metus, in imperdiet ante lorem vitae ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam eget neque id metus gravida tristique ac quis erat. Aenean quis aliquet sem. Ut ut elementum sem. Suspendisse eleifend ut est non dapibus. Nulla porta, neque quis pretium sagittis, tortor lacus elementum metus, in imperdiet ante lorem vitae ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+					</section>
+				-->
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+
+
+	</body>
+</html>
