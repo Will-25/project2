@@ -17,14 +17,14 @@
           ("Green Pepper", "Non-Meat"),
           ("Salami", "Meat"),
           ("Spinach", "Non-Meat"),
-          ("Buffilo Chicken", "Meat"),
+          ("Buffalo Chicken", "Meat"),
           ("BBQ Sauce", "Non-Meat"),
           ("Feta Cheese", "Non-Meat");
 
-INSERT INTO faveorites (pizza_name)
+INSERT INTO favorites (pizza_name)
     VALUES("meat lover"),
           ("bbq chicken pizza"),
-          ("buffilo chicken pizza"),
+          ("buffalo chicken pizza"),
           ("hawaiian pizza");
 
 INSERT INTO pizzaWTopping (pizza_id, topping_id)
