@@ -6,7 +6,7 @@ CREATE TABLE toppings
     PRIMARY KEY (id)
 )
 
-CREATE TABLE faveorites
+CREATE TABLE favorites
 (
     id INTEGER AUTO_INCREMENT NOT NULL,
     pizza_name VARCHAR(50) NOT NULL,

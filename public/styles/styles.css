@@ -80,6 +80,9 @@
   animation-delay: 2s;
   animation-duration: 5s;
 }
+#header{
+  background-color: black;
+}
 
 #logo{
   background-color: black;
