@@ -5,34 +5,19 @@
 		<title>PIZZERIA PLAZA</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		{{!-- <link rel="stylesheet" href="assets/css/main.css" /> --}}
-        {{!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="../public/js/index.js"></script>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script> --}}
-			{{!-- <link href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css" rel = "stylesheet">
-			<link href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel ="stylesheet"> --}}
-			{{!-- <link rel ="stylesheet" type="text/css" href="../public/styles/styles.css"> --}}
-      {{!-- <link rel ="stylesheet" type="text/css" href="../public/styles/main.css"> --}}
+		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body>
+
 		<!-- Header -->
 			<header id="header" class="alt">
 				<div class="inner">
 					<h1 class="animated bounceInRight" id="main-logo">PIZZERA PLAZA</h1>
-					<p>Welcome to the pizzeria plaza 
-            <br/> 
-          
-        </p>
-          <li>
-            <button type="button" class="btn btn-danger" id="menu-button">Menu</button></li> 
-            <br/>
-					{{!-- <input type ="button" onClick ="document.getElementById('build').scrollIntoView();">Build Your Pizza --}}
-          <li>
-            <button type="button" class="btn btn-danger" id="build-button">Build Your Pizza</button>
-            </li></p>
+                    <p>Welcome to the pizzeria plaza <br/>
+                        <li><button type="button" class="btn btn-danger" id="submit">Menu</button><br/>
+                            <li><button type="button" class="btn btn-danger" id="submit">Build Your Pizza</button></li>
+                        </li> <input type ="button" onClick ="document.getElementById('middle').scrollIntoView();">Menu</p> <br/>
+					<input type ="button" onClick ="document.getElementById('build').scrollIntoView();">Build Your Pizza</p>
 				</div>
 			</header>
 
@@ -48,8 +33,8 @@
 							<!-- Buttons go here -->
 						</div>
 						<br/>
-						<h2>Your Current Pizza:</h2>
-						<div class="userToppings">
+						<h2>Your Current Toppings:</h2>
+						<div class="user-toppings">
 							<!-- User toppings -->
 
 						</div>
@@ -155,7 +140,14 @@
 			</div>
 
 		<!-- Scripts -->
-
-
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<link href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css" rel = "stylesheet">
+			<link href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel ="stylesheet">
+            <link rel ="stylesheet" type="text/css" href="../public/styles/styles.css">
+            <link rel="stylesheet" type ="text/css" href="../views/Index/assets/css/main.css">
+            <link rel="stylesheet" type ="text/css" href="../views/Index/assets/css/font-awesome.min.css">
 	</body>
 </html>

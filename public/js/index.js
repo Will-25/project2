@@ -115,8 +115,16 @@ $(document).ready(function() {
     button.attr("id", count);
     button.text(toppings[i]);
 
-    $(".pizza-buttons").append(button);
+    $(".btn-group").append(button);
   };
+
+  $("#menu-button").on("click", function(){
+    document.getElementById('middle').scrollIntoView();
+  });
+
+  $("#build-button").on("click", function(){
+    document.getElementById('build').scrollIntoView();
+  });
 
   // $(".buttonT").on("click", function(){
   //   var bText= $(this).text();
