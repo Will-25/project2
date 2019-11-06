@@ -1,50 +1,4 @@
 <div id="home">
-<<<<<<< HEAD
- <div class="container">
-   <div class="row">
-     <div class="col-md-6">
-       <h1>{{msg}}</h1>
-       <h2 class="animated bounceInRight">PIZZERIA PLAZA</h2>
-       <form class="clearfix mb-4" action="POST">
-         <div class="form-group">
-           <label for="search-heading">Enter Your Pizza</label>
-           <input type="text" id="pizza-enter" class="form-control" aria-describedby="example-text"
-             placeholder="BBQ Chicken Pizza">
-         </div>
-         <br />
-         <h2 class="title-heading">Our Toppings</h2>
-         <div class="pizza-buttons">
-           <div class="btn-group" role="group" aria-label="Basic example">
-           </div>
-         </div>
-         </br> </br> </br> </br>
-         <div>
-           <h2>Your toppings:</h2>
-           <br>
-           <div class="userToppings"></div>
-         </div>
-         {{!-- <h2>Your Pizza:</h2>
-         <br /> </br> </br> </br> </br> </br> </br> --}}
-         <button type="button" class="btn btn-danger" id="submit">Submit</button>
-       </form>
-     </div>
-     <div class="row">
-       <div class="col-md-12">
-         <h2>Your Previous Pizzas:</h2>
-         <ul>
-           {{#each saved}}
-           <li>
-             <p>ID: {{this.id}}</p>
-             <p>Task: {{this.saved}}</p>
-           </li>
-           {{/each}}
-         </ul>
-       </div>
-     </div>
-   </div>
- </div>
-</div>
-=======
   <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -75,6 +29,34 @@
 
           <button type="button" class="btn btn-danger" id="submit">Submit</button>
         </form>
+        <form class="col-md-6">
+          {{#if user}}
+          <div class="form login-form">
+            <p>Logged in as {{user.username}}</p>
+            <div class="buttons">
+              <a class="button logout" href="#">Logout</a>
+            </div>
+          </div>
+          {{else}}
+          <div class="form login-form">
+            <input type="text" name="username" placeholder="username">
+            <input type="text" name="password" placeholder="password">
+            <div class="buttons">
+              <button class="button login">Login</button>
+              <a class="button signup" href="/register">Signup</a>
+            </div>
+          </div>
+          <div class="form signup-form">
+            <input type="text" name="username" placeholder="username">
+            <input type="text" name="email" placeholder="email">
+            <input type="text" name="password" placeholder="password">
+            <div class="buttons">
+              <a class="button login" href="/">Login</a>
+              <button class="button signup">Signup</button>
+            </div>
+          </div>
+          {{/if}}
+        </form>
       </div>
 
       <div class="row">
@@ -97,12 +79,11 @@
   </div>
 </div>
 
->>>>>>> eb77d4e5f16e63ffebf24ddc7f071f27d29b9b4a
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Crimson+Text&display=swap" rel="stylesheet">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
- integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
- integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="../public/styles/styles.css">

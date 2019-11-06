@@ -11,18 +11,15 @@
   },
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.4",
-    "dotenv": "^8.2.0",
-=======
     "choreographer-js": "^1.1.0",
+    "cookie-parser": "^1.4.4",
     "dotenv": "^8.0.0",
->>>>>>> 71858ed8ecac1f15258b6e00e77daac0a0e28e79
     "express": "^4.17.0",
     "express-handlebars": "^3.1.0",
     "mysql2": "^1.6.5",
+    "nodemon": "^1.19.4",
     "sequelize": "^5.21.2"
   },
   "devDependencies": {
