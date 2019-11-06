@@ -6,33 +6,35 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		{{!-- <link rel="stylesheet" href="assets/css/main.css" /> --}}
-        {{!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="../public/js/index.js"></script>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script> --}}
-			{{!-- <link href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css" rel = "stylesheet">
-			<link href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel ="stylesheet"> --}}
-			{{!-- <link rel ="stylesheet" type="text/css" href="../public/styles/styles.css"> --}}
-      {{!-- <link rel ="stylesheet" type="text/css" href="../public/styles/main.css"> --}}
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<script src="./js/jquery.min.js"></script>
+			<script src="./js/skel.min.js"></script>
+			<script src="./js/util.js"></script>
+			<script src="./js/main.js"></script>
+      <link href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css" rel = "stylesheet">
+			<link href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel ="stylesheet">
+      <link rel="stylesheet" href="assets/css/main.css">
 	</head>
-	<body>
+	
 		<!-- Header -->
 			<header id="header" class="alt">
 				<div class="inner">
 					<h1 class="animated bounceInRight" id="main-logo">PIZZERA PLAZA</h1>
-					<p>Welcome to the pizzeria plaza 
+					<p>Welcome to the Pizzeria Plaza 
             <br/> 
           
         </p>
           <li>
-            <button type="button" class="btn btn-danger" id="menu-button">Menu</button></li> 
+            <button type="button" class="btn btn-danger" id="menu-button" onclick="document.getElementById('middle').scrollIntoView();">Menu</button></li> 
             <br/>
 					{{!-- <input type ="button" onClick ="document.getElementById('build').scrollIntoView();">Build Your Pizza --}}
           <li>
-            <button type="button" class="btn btn-danger" id="build-button">Build Your Pizza</button>
+            <button type="button" class="btn btn-danger" id="build-button" onclick ="document.getElementById('intro').scrollIntoView();">Build Your Pizza</button>
             </li></p>
+						<br/>
+						<input type="text" id="pizza-enter" class="form-control" aria-describedby="example-text"
+             placeholder="BBQ Chicken Pizza">
+						 <button type="submit" id="submit-button" class="btn btn-primary mb-2">Enter</button>
 				</div>
 			</header>
 
@@ -40,13 +42,14 @@
 			<div id="wrapper">
 
 				<!-- Banner -->
-					<section id="intro" class="main" id="build">
+					<section id="intro" class="main">
 						<span class="icon fa-diamond major"></span>
 						<h2>Our Toppings:</h2>
 						<div class="pizza-buttons">
 								<div class="btn-group" role="group" aria-label="Basic example">
 							<!-- Buttons go here -->
 						</div>
+            </div>
 						<br/>
 						<h2>Your Current Pizza:</h2>
 						<div class="userToppings">
@@ -65,11 +68,9 @@
 							</li>
 								{{/each}}
 							</ul>
+<br/>
+              <li><button type="button" class="btn btn-danger" id="submit-button">Submit</button></li>
 						</div>
-
-						<ul class="actions">
-							<li><button type="button" class="btn btn-danger" id="submit">Submit</button></li>
-						</ul>
 					</section>
 					<br/>
 					<h1 class="menu-title" id="middle">MENU</h1>
@@ -149,13 +150,11 @@
 							<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
 							<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
-						<p class="copyright">&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
 					</footer>
 
 			</div>
 
 		<!-- Scripts -->
 
-
-	</body>
+<script src="./js/index.js"></script>
 </html>

@@ -91,6 +91,11 @@
 
 /* Type */
 
+#pizza-enter{
+	color:red;
+	background-color:white;
+}
+
 	body {
 		background-color: #f4f4f4;
 		color: #666666;

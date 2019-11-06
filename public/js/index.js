@@ -1,14 +1,10 @@
 $(document).ready(function() {
   // Get references to page elements
-  var $pizzaName = $("#pizza-enter");
-  var $submitBtn = $("#submit");
-  var $favoriteList = $("#pizza-fav");
 
   var pizzaName = $("#pizza-enter");
-  var submitBtn = $("#submit");
+  var submitBtn = $("#submit-button");
   var favoriteList = $("#pizza-fav");
 
- 
   var API = {
     savePizza: function(index) {
       return $.ajax({
@@ -37,6 +33,7 @@ $(document).ready(function() {
   // eslint-disable-next-line no-irregular-whitespace
   // refreshFavorites gets new examples from the db and repopulates the list
 
+
   API.getPizza().then(function(data) {
     console.log(data)
     for (var i = 0; i < data.length; i++) {
@@ -56,10 +53,10 @@ $(document).ready(function() {
   var handleFormSubmit = function(event) {
     event.preventDefault();
     var index = {
-      text: = pizzaName.val().trim(),
+      text: pizzaName.val().trim()
     };
 
-    if (!(index.text)) {
+    if (!index.text) {
       alert("You must enter an Pizza name!");
       return;
     }
@@ -90,40 +87,27 @@ $(document).ready(function() {
     "Bacon",
     "Onion",
     "Garlic",
-    "Crushed Red Pepper",
-    "Pineapple",
-    "Basil",
-    "Ham",
-    "Olives",
-    "Oregano",
-    "Chicken",
-    "Beef",
-    "Jalapeno",
-    "Green Pepper",
-    "Salami",
-    "Spinach",
-    "Buffilo Chicken",
-    "BBQ Sause",
-    "Feta Cheese"
+    "Crushed Red Pepper"
   ];
   var count = 0;
   // for loop to create all toppings buttons to html
   for (var i = 0; i < toppings.length; i++) {
     count++;
     var button = $("<button>");
-    button.addClass("buttonT");
+    button.addClass("buttonT pizza-buttons");
     button.attr("id", count);
     button.text(toppings[i]);
-
     $(".btn-group").append(button);
   };
 
   $("#menu-button").on("click", function(){
+    console.log("Menu");
     document.getElementById('middle').scrollIntoView();
   });
 
   $("#build-button").on("click", function(){
     document.getElementById('build').scrollIntoView();
+    console.log("Build");
   });
 
   // $(".buttonT").on("click", function(){
@@ -137,10 +121,10 @@ $(document).ready(function() {
 
     $(".userToppings").append(bText, ", ");
   });
-  $("#submit").on("click", function(event) {
+  $("#submit-button").on("click", function(event) {
     event.preventDefault();
     var index = {
-      text: $pizzaName.val().trim()
+      text: pizzaName.val().trim()
     };
 
     if (!index.text) {
@@ -154,9 +138,9 @@ $(document).ready(function() {
       toppings: toppings
     };
     $.post("/api/favorites", userPizza).then();
-    displayEmpty();
+    // displayEmpty();
   });
-  function displayEmpty() {
-    userPizza.empty();
-  }
+  // function displayEmpty() {
+  //   userPizza.empty();
+  // }
 });
