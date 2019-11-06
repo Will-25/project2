@@ -38,12 +38,16 @@ $(document).ready(function() {
   // refreshFavorites gets new examples from the db and repopulates the list
 
   API.getPizza().then(function(data) {
+    console.log(data)
     for (var i = 0; i < data.length; i++) {
       var favoriteList = {
         name: data[i].pizzaName,
         toppings: data[i].toppings
       }
-      $("#pizza-fav").html("<div>" + favoriteList + "</div>");
+
+      console.log(favoriteList)
+      // $("#pizza-fav").html("<div>" + favoriteList + "</div>");
+      $(".favList").append(favoriteList.name + ", ");
     }
   });
 
@@ -142,5 +146,9 @@ $(document).ready(function() {
       toppings: toppings
     };
     $.post("/api/favorites", userPizza).then();
+    displayEmpty();
   });
+  function displayEmpty() {
+    userPizza.empty();
+  }
 });

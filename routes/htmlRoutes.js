@@ -8,6 +8,7 @@ module.exports = function(app) {
 
   // Load example page and pass in an example by id
   app.get("/favorites", function(req, res) {
+    
     res.render("favorites");
   });
 
