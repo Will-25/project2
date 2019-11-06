@@ -7,7 +7,6 @@ module.exports = function(app) {
       res.json(dbFavorite);
     });
   });
-
   // Create a new example
   app.post("/api/favorites", function(req, res) {
     console.log(req.body);

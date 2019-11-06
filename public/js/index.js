@@ -4,7 +4,11 @@ $(document).ready(function() {
   var $submitBtn = $("#submit");
   var $favoriteList = $("#pizza-fav");
 
-  // The API object contains methods for each kind of request we'll make
+  var pizzaName = $("#pizza-enter");
+  var submitBtn = $("#submit");
+  var favoriteList = $("#pizza-fav");
+
+ 
   var API = {
     savePizza: function(index) {
       return $.ajax({
@@ -51,12 +55,20 @@ $(document).ready(function() {
   // Save the new example to the db and refresh the list
   var handleFormSubmit = function(event) {
     event.preventDefault();
+    var index = {
+      text: = pizzaName.val().trim(),
+    };
+
+    if (!(index.text)) {
+      alert("You must enter an Pizza name!");
+      return;
+    }
 
     API.savePizza(index).then(function() {
       refreshFavorites();
     });
 
-    $pizzaName.val("");
+    pizzaName.val("");
   };
 
   // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -104,7 +116,13 @@ $(document).ready(function() {
     button.text(toppings[i]);
 
     $(".pizza-buttons").append(button);
-  }
+  };
+
+  // $(".buttonT").on("click", function(){
+  //   var bText= $(this).text();
+  //   $(".userToppings").append(bText);
+
+  // }
   $(".buttonT").on("click", function(event) {
     event.preventDefault();
     var bText = $(this).text();
